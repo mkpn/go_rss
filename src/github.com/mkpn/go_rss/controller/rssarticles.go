@@ -4,10 +4,11 @@ import (
 	"net/http"
 	"fmt"
 	"time"
+	"github.com/mkpn/go_rss/model"
 )
 
-func testHandler(w http.ResponseWriter, r *http.Request) {
-	xml, err := GetFeedArticles("http://b.hatena.ne.jp/hotentry/it.rss")
+func TestHandler(w http.ResponseWriter, r *http.Request) {
+	xml, err := model.GetFeedArticles("http://b.hatena.ne.jp/hotentry/it.rss")
 	if err != nil {
 		fmt.Printf("error: %v", err)
 		return
