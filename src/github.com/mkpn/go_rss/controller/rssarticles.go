@@ -8,7 +8,7 @@ import (
 )
 
 func TestHandler(w http.ResponseWriter, r *http.Request) {
-	xml, err := model.GetFeedArticles("http://b.hatena.ne.jp/hotentry/it.rss")
+	xml, err := model.GetArticleList("http://b.hatena.ne.jp/hotentry/it.rss")
 	if err != nil {
 		fmt.Printf("error: %v", err)
 		return
