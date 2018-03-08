@@ -7,5 +7,6 @@ import (
 )
 func main() {
     http.HandleFunc("/test", controller.TestHandler)
+    http.HandleFunc("/rx", controller.RxHandler)
     http.ListenAndServe(":8080", nil)
 }
