@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"encoding/xml"
 	"github.com/mkpn/go_rss/entity"
+	"github.com/mkpn/go_rss/data"
 )
 
 func GetArticleList(url string) (entity.FeedXml, error) { //返り値の構文ミス補完してくれなかった。
@@ -16,5 +17,7 @@ func GetArticleList(url string) (entity.FeedXml, error) { //返り値の構文�
 	feedXml := entity.FeedXml{}
 	err := xml.Unmarshal([]byte(feedXmlStr), &feedXml)
 	//return feedXml.Articles, err ←本当はこうやって書きたいんだけどどうすれば・・・
+
+	data.Insert()
 	return feedXml, err
 }

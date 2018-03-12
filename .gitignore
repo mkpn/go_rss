@@ -14,3 +14,10 @@
 *.out
 
 .idea/
+/src/github.com/mkpn/go_rss/secret/mysql.go
+bin/
+pkg/
+Would skip repository src/github.com/go-sql-driver/mysql
+Would skip repository src/github.com/gorilla/websocket
+Would skip repository src/github.com/reactivex/rxgo
+Would skip repository src/github.com/stretchr/testify
