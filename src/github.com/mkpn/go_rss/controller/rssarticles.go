@@ -5,9 +5,10 @@ import (
 	"fmt"
 	"time"
 	"github.com/mkpn/go_rss/model"
+	"encoding/json"
 )
 
-func TestHandler(w http.ResponseWriter, r *http.Request) {
+func RssHandler(w http.ResponseWriter, r *http.Request) {
 	xml, err := model.GetArticleList("http://b.hatena.ne.jp/hotentry/it.rss")
 	if err != nil {
 		fmt.Printf("error: %v", err)
@@ -23,4 +24,15 @@ func TestHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "%v\n", articles.Link)
 		fmt.Fprintln(w)
 	}
+}
+
+func RssAsJsonHandler(w http.ResponseWriter, r *http.Request) {
+	xml, err := model.GetArticleList("http://b.hatena.ne.jp/hotentry/it.rss")
+	if err != nil {
+		fmt.Printf("error: %v", err)
+		return
+	}
+
+	result, _ := json.Marshal(xml)
+	fmt.Fprintf(w, "%s\n", result)
 }

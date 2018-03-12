@@ -2,11 +2,13 @@
 package main
 
 import (
-    "net/http"
+	"net/http"
 	"github.com/mkpn/go_rss/controller"
 )
+
 func main() {
-    http.HandleFunc("/test", controller.TestHandler)
-    http.HandleFunc("/rx", controller.RxHandler)
-    http.ListenAndServe(":8080", nil)
+	http.HandleFunc("/test", controller.RssHandler)
+	http.HandleFunc("/rss_json", controller.RssAsJsonHandler)
+	http.HandleFunc("/rx", controller.RxHandler)
+	http.ListenAndServe(":8080", nil)
 }
